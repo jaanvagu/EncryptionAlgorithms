@@ -1,5 +1,5 @@
 # EncryptionAlgorithms
-Implementación de: Algoritmo Playfair y Análisis por frecuencia polialfabpetica.
+Implementación de: Algoritmo Playfair y Análisis por frecuencia polialfabética.
 
 ## Prerrequeisitos
 * Sistema Unix.
