@@ -10,9 +10,16 @@ package utils;
 
 public class Constants {
     /* Números */
-    public static final int     NUMBER_0    = 0;
-    public static final int     NUMBER_1    = 1;
-    public static final int     NUMBER_2    = 2;
+    public static final int     NUMBER_0            = 0;
+    public static final int     NUMBER_1            = 1;
+    public static final int     NUMBER_2            = 2;
 
+    /* Argumentos */
+    public static final String  HELP_ARGUMENT       = "help";
+    public static final String  PLAYFAIR            = "pf";
+    public static final String  ANALISIS_FRECUENCIA = "afp";
+
+    /* Indentificador para reemplazar comando inválido */
+    public static final String  INVALID_COMMAND_STR = "%comando%";
 
 }

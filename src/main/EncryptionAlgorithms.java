@@ -1,5 +1,5 @@
 /**
- * Clase principal que muestra los men&uacute;s correspondientes a cada algoritmo y las opciones de ayuda
+ * Clase principal que muestra los menús correspondientes a cada algoritmo y las opciones de ayuda
  * @autor Jairo A. Valencia
  * @date 01-may-2019
  * @version 1.0
@@ -13,15 +13,82 @@ import utils.Util;
 
 public class EncryptionAlgorithms {
 
+    /**
+     * Evalua los arguemntos recibidos y e invoca el menú correspondiente
+     * @param args Argumentos recibidos por consola
+     * @return Menú para imprimir
+     */
+    private static String evaluateInitialArguments(String[] args){
+        //No argumentos
+        if(Constants.NUMBER_0 == args.length){
+            return Text.NO_ARGUMENTS_MENU;
+        }
+        //1 argumento
+        else if(Constants.NUMBER_1 == args.length){
+            if(Constants.HELP_ARGUMENT.equals(args[0]))
+                return Text.HELP_MENU;
+            else if(Constants.PLAYFAIR.equals(args[0]))
+                return Text.PLAYFAIR_MENU;
+            else if(Constants.ANALISIS_FRECUENCIA.equals(args[0]))
+                return Text.ANALISIS_FREC_POLI_MENU;
+            else
+                return Util.printInvalidMenu(args[0]);
+        }
+        else if(Constants.PLAYFAIR == args[0]){
+            return evaluatePlayfair(args);
+        }
+        else if(Constants.ANALISIS_FRECUENCIA == args[0]){
+            return evaluateAnalisisFrecPoli(args);
+        }
+        //>1 argumento
+        else{
+            int lastPos = args.length - 1;
+            return Util.printInvalidMenu(args[lastPos]);
+        }
+    }
+
+    /**
+     *
+     * @param args
+     * @return
+     */
+    private static String evaluatePlayfair(String[] args){
+        return "Evaluando playfair";
+    }
+
+    /**
+     *
+     * @param args
+     * @return
+     */
+    private static String evaluateAnalisisFrecPoli(String[] args){
+        //Util.readFile("test_data/MOBY_DICK_Original.txt");
+        //Util.readFile("test_data/DON_QUIJOTE_Original.txt");
+
+        Util.writeFile("prueba",Util.readFile("test_data/DON_QUIJOTE_Original.txt"));
+        return "Evaluando Análisis frecuencia";
+    }
 
     /**
      * Método principal que recibe los parámetros para ejecutar el programa de cifrado
-     * @param args Arguemntos tipo bandera
+     * @param args Argumentos y banderas
      */
     public static void main(String[] args) {
 
-        if(Constants.NUMBER_0 == args.length){
-            Util.printMenu(Text.INITIAL_MENU);
+        //DON_QUIJOTE: 1.640.665
+        //MOBY_DICK:     966.800
+
+        //String[] arguments = {"help"};
+        //String[] arguments = {"pf"};
+
+        String[] arguments = {"afp", "1"};
+
+        args = arguments;
+
+        try {
+            Util.printMenu(EncryptionAlgorithms.evaluateInitialArguments(args));
+        }catch (Exception e){
+            Util.printMenu(Text.GENERAL_ERROR);
         }
     }
 }
