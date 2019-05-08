@@ -98,11 +98,12 @@ public class Playfair {
     /**
      * Proceso que descifra el criptograma recibido
      * @param s Criptograma a descifrar
+     * @param key Clave
      * @return Texto descifrado
      */
-    public static String decode(String s) {
-        String deco = codec(new StringBuilder(s), 4);
-        return deco;
+    public static String decode(String s, String key) {
+        createTable(key);
+        return codec(new StringBuilder(s), 4);
     }
 
     /**

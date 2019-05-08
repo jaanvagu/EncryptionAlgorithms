@@ -54,12 +54,20 @@ public class EncryptionAlgorithms {
      * @return
      */
     private static String evaluatePlayfair(String[] args){
-        String crypto = Playfair.encode(Util.readFile(args[2]), Util.readFile(args[4]));
-        Util.writeFile("qCrypto", crypto);
-        String cryptoFIle = Util.readFile("test_results/qCrypto");
-        String dsc = Playfair.decode(cryptoFIle);
-        Util.writeFile("qDscrypto", dsc);
-        return "Evaluando Playfair";
+        System.out.println("Iniciando playfair...");
+        String outFIleName ;
+        if ("-c".equals(args[1])) {
+            outFIleName = args[2] + ".cif";
+            String crypto = Playfair.encode(Util.readFile(args[2]), Util.readFile(args[4]));
+            Util.writeFile(outFIleName, crypto);
+        }
+        else {
+            outFIleName = args[2] + ".dec";
+            String dsc = Playfair.decode(Util.readFile(args[2]), Util.readFile(args[4]));
+            Util.writeFile(outFIleName, dsc);
+        }
+
+        return "Proceso finalizado";
     }
 
     /**
@@ -87,7 +95,7 @@ public class EncryptionAlgorithms {
         //String[] arguments = {"help"};
         //String[] arguments = {"pf"};
 
-        String[] arguments = {"pf", "-c", "test_data/DON_QUIJOTE_Original.txt", "-k", "test_data/key.txt"};
+        String[] arguments = {"pf", "-d", "test_data/DON_QUIJOTE_Original.txt.cif", "-k", "test_data/key.txt"};
 
         args = arguments;
 
