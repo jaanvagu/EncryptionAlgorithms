@@ -81,4 +81,13 @@ public class Util {
             System.out.println("Error creando archivo. " + e.getMessage());
         }
     }
+
+    public static boolean isInteger(String expression){
+        try{
+            Integer.parseInt(expression);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 }

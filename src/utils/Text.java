@@ -82,7 +82,7 @@ public class Text {
         "        |     java -jar EncryptionAlgorithms.jar afp [idioma] in <ArchivoEntrada> frec <Frecuencia>     |\n" +
         "        |                                                                                               |\n" +
         "        |     Idiomas:                                                                                  |\n" +
-        "        |     -s     Español                                                                            |\n" +
+        "        |     -e     Español                                                                            |\n" +
         "        |     -i     Inglés                                                                             |\n" +
         "        |     -f     Francés                                                                            |\n" +
         "        |     -a     Alemán                                                                             |\n" +
@@ -98,4 +98,10 @@ public class Text {
 
     /* Error general */
     public static final String GENERAL_ERROR = "No se reconoce el comando.";
+
+    /* Menú ayuda incial */
+    public static final String INVALID_ARGUMENTS_AFP =
+            "Sintaxis inválida para Análisis por frecuencia polialfabética.\n" +
+            "Consulte 'java -jar EncryptionAlgorithms.jar afp' para leer sobre este subcomando.\n"
+            + "";
 }
