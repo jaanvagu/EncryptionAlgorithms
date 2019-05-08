@@ -69,7 +69,7 @@ public class Util {
     public static void writeFile(String fileName, String content){
         BufferedWriter bufferedWriter;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter("test_results/" + fileName));
+            bufferedWriter = new BufferedWriter(new FileWriter(fileName));
             try {
                 bufferedWriter.write(content);
             } catch (Exception e) {

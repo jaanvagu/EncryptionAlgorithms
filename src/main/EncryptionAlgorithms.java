@@ -7,21 +7,11 @@
 
 package main;
 
+import crypto.Playfair;
 import analysis.AnalysisPolyalphaFreq;
 import utils.Constants;
 import utils.Text;
 import utils.Util;
-
-import java.util.*;
-
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import static java.util.stream.Collectors.*;
-import static java.util.Map.Entry.*;
 
 public class EncryptionAlgorithms {
 
@@ -46,10 +36,10 @@ public class EncryptionAlgorithms {
             else
                 return Util.printInvalidMenu(args[0]);
         }
-        else if(Constants.PLAYFAIR.equals(args[0])){
+        else if(Constants.PLAYFAIR == args[0]){
             return evaluatePlayfair(args);
         }
-        else if(Constants.ANALISIS_FRECUENCIA.equals(args[0])){
+        else if(Constants.ANALISIS_FRECUENCIA == args[0]){
             return evaluateAnalisisFrecPoli(args);
         }
         //>1 argumento
@@ -65,7 +55,20 @@ public class EncryptionAlgorithms {
      * @return
      */
     private static String evaluatePlayfair(String[] args){
-        return "Evaluando playfair";
+        System.out.println("Iniciando playfair...");
+        String outFIleName ;
+        if ("-c".equals(args[1])) {
+            outFIleName = args[2] + ".cif";
+            String crypto = Playfair.encode(Util.readFile(args[2]), Util.readFile(args[4]));
+            Util.writeFile(outFIleName, crypto);
+        }
+        else {
+            outFIleName = args[2] + ".dec";
+            String dsc = Playfair.decode(Util.readFile(args[2]), Util.readFile(args[4]));
+            Util.writeFile(outFIleName, dsc);
+        }
+
+        return "Proceso finalizado";
     }
 
     /**
