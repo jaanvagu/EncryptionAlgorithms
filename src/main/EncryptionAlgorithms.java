@@ -8,6 +8,7 @@
 package main;
 
 import crypto.Playfair;
+import analysis.AnalysisPolyalphaFreq;
 import utils.Constants;
 import utils.Text;
 import utils.Util;
@@ -71,16 +72,39 @@ public class EncryptionAlgorithms {
     }
 
     /**
-     *
+     * Verifica que los parámatros para realizar el análsis por frecuencia sean correctos e invoca la clase que
+     * realiza el análisis
      * @param args
      * @return
      */
     private static String evaluateAnalisisFrecPoli(String[] args){
-        //Util.readFile("test_data/MOBY_DICK_Original.txt");
-        //Util.readFile("test_data/DON_QUIJOTE_Original.txt");
-
-        Util.writeFile("prueba",Util.readFile("test_data/DON_QUIJOTE_Original.txt"));
-        return "Evaluando Análisis frecuencia";
+        if(Constants.NUMBER_6 == args.length) {
+            boolean correctArguments = false;
+            //Clase que procesa el análisis
+            AnalysisPolyalphaFreq analysisPolyalphaFreq = new AnalysisPolyalphaFreq();
+            //Valida que exista el lenguaje ingresado
+            if (analysisPolyalphaFreq.existLanguage(args[1])) {
+                //Valida bandera "in"
+                if (Constants.IN_ARGUMENT.equals(args[2])) {
+                    //Valida bandera "frec"
+                    if (Constants.FREC_ARGUMENT.equals(args[4])) {
+                        //Valida que el parámetro frec sea entero
+                        if(Util.isInteger(args[5])){
+                            correctArguments = true;
+                            String text = Util.readFile(args[3]);
+                            return analysisPolyalphaFreq.executeAnalysis(args[1], text, args[5]);
+                        }
+                    }
+                }
+            }
+            if(correctArguments == false){
+                return Text.INVALID_ARGUMENTS_AFP;
+            }
+        }else{
+            int lastPos = args.length - 1;
+            return Util.printInvalidMenu(args[lastPos]);
+        }
+        return null;
     }
 
     /**
@@ -92,10 +116,8 @@ public class EncryptionAlgorithms {
         //DON_QUIJOTE: 1.640.665
         //MOBY_DICK:     966.800
 
-        //String[] arguments = {"help"};
-        //String[] arguments = {"pf"};
-
-        String[] arguments = {"pf", "-d", "test_data/DON_QUIJOTE_Original.txt.cif", "-k", "test_data/key.txt"};
+        String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "frec", "1"};
+        //String[] arguments = {"afp", "-e", "in", "test_data/prueba.txt", "frec", "1"};
 
         args = arguments;
 
@@ -103,6 +125,7 @@ public class EncryptionAlgorithms {
             Util.printMenu(EncryptionAlgorithms.evaluateInitialArguments(args));
         }catch (Exception e){
             Util.printMenu(Text.GENERAL_ERROR);
+            e.printStackTrace();
         }
     }
 }
