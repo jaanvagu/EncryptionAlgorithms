@@ -7,6 +7,7 @@
 
 package main;
 
+import crypto.Playfair;
 import utils.Constants;
 import utils.Text;
 import utils.Util;
@@ -53,7 +54,20 @@ public class EncryptionAlgorithms {
      * @return
      */
     private static String evaluatePlayfair(String[] args){
-        return "Evaluando playfair";
+        System.out.println("Iniciando playfair...");
+        String outFIleName ;
+        if ("-c".equals(args[1])) {
+            outFIleName = args[2] + ".cif";
+            String crypto = Playfair.encode(Util.readFile(args[2]), Util.readFile(args[4]));
+            Util.writeFile(outFIleName, crypto);
+        }
+        else {
+            outFIleName = args[2] + ".dec";
+            String dsc = Playfair.decode(Util.readFile(args[2]), Util.readFile(args[4]));
+            Util.writeFile(outFIleName, dsc);
+        }
+
+        return "Proceso finalizado";
     }
 
     /**
@@ -81,7 +95,7 @@ public class EncryptionAlgorithms {
         //String[] arguments = {"help"};
         //String[] arguments = {"pf"};
 
-        String[] arguments = {"afp", "1"};
+        String[] arguments = {"pf", "-d", "test_data/DON_QUIJOTE_Original.txt.cif", "-k", "test_data/key.txt"};
 
         args = arguments;
 
