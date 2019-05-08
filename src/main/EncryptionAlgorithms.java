@@ -116,7 +116,10 @@ public class EncryptionAlgorithms {
         //DON_QUIJOTE: 1.640.665
         //MOBY_DICK:     966.800
 
-        String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "frec", "1"};
+
+        //String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "frec", "1"};
+        //String[] arguments = {"afp", "-e", "in", "test_data/MOBY_DICK_Original.txt", "frec", "1"};
+        String[] arguments = {"afp", "-e", "in", "test_data/tildes.txt", "frec", "1"};
         //String[] arguments = {"afp", "-e", "in", "test_data/prueba.txt", "frec", "1"};
 
         args = arguments;

@@ -29,16 +29,40 @@ public class AnalysisPolyalphaFreq {
         languagesHash.add(Constants.GERMAN_LANGUAGE);
     }
 
+    /**
+     * Busca idioma en hash
+     * @param language idioma
+     * @return true o false
+     */
     public boolean existLanguage(String language){
         return languagesHash.contains(language);
     }
 
+    /**
+     * Ejecuta el análisis de acuerdo a parámetros
+     * @param language idioma
+     * @param text texto
+     * @param freq frecuencia
+     * @return
+     */
     public String executeAnalysis(String language, String text, String freq){
-        int frequency = Integer.parseInt(freq);
-        Map<String, Integer> mapFrequencies = new HashMap<>();
 
-        for(int i=0; i<text.length(); i++){
-            String expression = String.valueOf(Character.toUpperCase(text.charAt(i)));
+        int frequency = Integer.parseInt(freq);
+        this.calculateFrequency(text, frequency);
+
+        return "\n\nAnálisis terminado\n";
+    }
+
+    private void calculateFrequency(String text, int freq){
+        Map<String, Integer> mapFrequencies = new HashMap<>();
+        int iBegin = 0;
+        int iEnd = freq;
+        while(iBegin < (text.length()) && iEnd <= text.length()){
+
+            String expression = text.substring(iBegin, iEnd);
+            iBegin = iBegin + freq;
+            iEnd   = iEnd + freq;
+
             int frecuency = 0;
             if(mapFrequencies.containsKey(expression)){
                 frecuency = mapFrequencies.get(expression);
@@ -59,14 +83,10 @@ public class AnalysisPolyalphaFreq {
         Set<String> keys = sorted.keySet();
         int count = 1;
         for (String key : keys) {
-            System.out.print(key + ": " + sorted.get(key) + "\t");
+            System.out.printf( "%-4s %10s", key + ": ", sorted.get(key) + "\t\t");
             if(count%5 == 0)
                 System.out.print("\n");
             count++;
         }
-        //System.out.println(mapFrequencies);
-        //System.out.println(sorted);
-
-        return "\nAnálisis terminado\n";
     }
 }
