@@ -88,8 +88,7 @@ public class Text {
         "        |                                                                                               |\n" +
         "        |     Nota: Los archivos deben estar codificados en UTF-8 sin BOM                               |\n" +
         "        |                                                                                               |\n" +
-        "        |     Salida: Genera un archivo con la extensión .afp que contiene las frecuencias para cada    |\n" +
-        "        |             conjunto de letras.                                                               |\n" +
+        "        |     Salida: Imprime en consola las frecuencias para cada conjunto de caracteres.              |\n" +
         "        |                                                                                               |\n" +
         "        |-----------------------------------------------------------------------------------------------|\n"
         +"";
