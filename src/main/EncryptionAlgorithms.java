@@ -36,10 +36,10 @@ public class EncryptionAlgorithms {
             else
                 return Util.printInvalidMenu(args[0]);
         }
-        else if(Constants.PLAYFAIR == args[0]){
+        else if(Constants.PLAYFAIR.equals(args[0])){
             return evaluatePlayfair(args);
         }
-        else if(Constants.ANALISIS_FRECUENCIA == args[0]){
+        else if(Constants.ANALISIS_FRECUENCIA.equals(args[0])){
             return evaluateAnalisisFrecPoli(args);
         }
         //>1 argumento
@@ -117,12 +117,12 @@ public class EncryptionAlgorithms {
         //MOBY_DICK:     966.800
 
 
-        //String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "frec", "1"};
+        String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "frec", "1"};
         //String[] arguments = {"afp", "-e", "in", "test_data/MOBY_DICK_Original.txt", "frec", "1"};
-        String[] arguments = {"afp", "-e", "in", "test_data/tildes.txt", "frec", "1"};
+        //String[] arguments = {"afp", "-e", "in", "test_data/tildes.txt", "frec", "1"};
         //String[] arguments = {"afp", "-e", "in", "test_data/prueba.txt", "frec", "1"};
 
-        args = arguments;
+        //args = arguments;
 
         try {
             Util.printMenu(EncryptionAlgorithms.evaluateInitialArguments(args));

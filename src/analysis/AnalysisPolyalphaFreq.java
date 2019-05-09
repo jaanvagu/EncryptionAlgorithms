@@ -47,10 +47,18 @@ public class AnalysisPolyalphaFreq {
      */
     public String executeAnalysis(String language, String text, String freq){
 
+        text = text.trim().toUpperCase();
         int frequency = Integer.parseInt(freq);
-        this.calculateFrequency(text, frequency);
+        long startTime = System.currentTimeMillis();
 
-        return "\n\nAnálisis terminado\n";
+        //while(frequency > 0) {
+            this.calculateFrequency(text, frequency--);
+        //}
+
+        System.out.println("Cantidad de letras: " + text.length());
+        long endTime = System.currentTimeMillis() - startTime;
+        System.out.println("Tiempo de ejecución: " + endTime + " milisegundos");
+        return "Análisis terminado\n";
     }
 
     private void calculateFrequency(String text, int freq){
@@ -82,11 +90,15 @@ public class AnalysisPolyalphaFreq {
 
         Set<String> keys = sorted.keySet();
         int count = 1;
+        System.out.println("----------");
+        System.out.println("FRECUENCIA | Tamaño n-grama: " + freq);
+        System.out.println("----------");
         for (String key : keys) {
-            System.out.printf( "%-4s %10s", key + ": ", sorted.get(key) + "\t\t");
+            System.out.printf( "%-1s %10s", key + ": ", sorted.get(key) + "\t\t");
             if(count%5 == 0)
                 System.out.print("\n");
             count++;
         }
+        System.out.println("\n");
     }
 }
