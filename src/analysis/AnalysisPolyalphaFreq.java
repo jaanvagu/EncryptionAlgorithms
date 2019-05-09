@@ -56,7 +56,7 @@ public class AnalysisPolyalphaFreq {
             this.calculateFrequency(text, iterator++);
         }
 
-        System.out.println("Cantidad de letras: " + text.length());
+        System.out.println("Cantidad de caracteres: " + text.length());
         long endTime = System.currentTimeMillis() - startTime;
         System.out.println("Tiempo de ejecución: " + endTime + " milisegundos");
         return "Análisis terminado\n";

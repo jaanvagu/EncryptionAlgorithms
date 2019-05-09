@@ -55,20 +55,34 @@ public class EncryptionAlgorithms {
      * @return
      */
     private static String evaluatePlayfair(String[] args){
-        System.out.println("Iniciando playfair...");
-        String outFIleName ;
+        String content = Util.readFile(args[3]);
+        String key = Util.readFile(args[5]);
+
+        String outFileName ;
+        long startTime;
+        long endTime;
+        System.out.println("Iniciando playfair...\n");
+
         if ("-c".equals(args[1])) {
-            outFIleName = args[2] + ".cif";
-            String crypto = Playfair.encode(Util.readFile(args[2]), Util.readFile(args[4]));
-            Util.writeFile(outFIleName, crypto);
+            outFileName = args[3] + ".cif";
+            startTime = System.currentTimeMillis();
+            String crypto = Playfair.encode(content, key);
+            Util.writeFile(outFileName, crypto);
+            endTime = System.currentTimeMillis() - startTime;
         }
         else {
-            outFIleName = args[2] + ".dec";
-            String dsc = Playfair.decode(Util.readFile(args[2]), Util.readFile(args[4]));
-            Util.writeFile(outFIleName, dsc);
+            outFileName = args[3] + ".dec";
+            startTime = System.currentTimeMillis();
+            String dsc = Playfair.decode(content, key);
+            Util.writeFile(outFileName, dsc);
+            endTime = System.currentTimeMillis() - startTime;
         }
 
-        return "Proceso finalizado";
+        System.out.println("Cantidad de caracteres: " + content.length());
+        System.out.println("Tamaño de la clave: " + key.length());
+        System.out.println("Tiempo de ejecución: " + endTime + " milisegundos");
+        System.out.println("Archivo generado: " + outFileName);
+        return "\nProceso finalizado\n";
     }
 
     /**
@@ -128,7 +142,6 @@ public class EncryptionAlgorithms {
             Util.printMenu(EncryptionAlgorithms.evaluateInitialArguments(args));
         }catch (Exception e){
             Util.printMenu(Text.GENERAL_ERROR);
-            e.printStackTrace();
         }
     }
 }

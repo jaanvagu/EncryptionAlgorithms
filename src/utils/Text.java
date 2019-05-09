@@ -67,6 +67,8 @@ public class Text {
         "        |     ArchivoEntrada: Nombre del archivo                                                        |\n" +
         "        |     ArchivoClave:   Nombre del archivo que contiene la clave para cifrar y descifrar          |\n" +
         "        |                                                                                               |\n" +
+        "        |     Nota: Los archivos deben estar codificados en UTF-8 sin BOM                               |\n" +
+        "        |                                                                                               |\n" +
         "        |     Salida: Genera un archivo con la extensión .cif si la opción es cifrar                    |\n" +
         "        |             y un archivo .des si la opción es descifrar.                                      |\n" +
         "        |                                                                                               |\n" +
@@ -90,6 +92,8 @@ public class Text {
         "        |     ArchivoEntrada: Nombre del archivo                                                        |\n" +
         "        |     TamañoNgrama:   Cantidad de letras agrupadas para contar su frecuencia de aparición       |\n" +
         "        |                                                                                               |\n" +
+        "        |     Nota: Los archivos deben estar codificados en UTF-8 sin BOM                               |\n" +
+        "        |                                                                                               |\n" +
         "        |     Salida: Genera un archivo con la extensión .afp que contiene las frecuencias para cada    |\n" +
         "        |             conjunto de letras.                                                               |\n" +
         "        |                                                                                               |\n" +
@@ -97,7 +101,8 @@ public class Text {
         +"";
 
     /* Error general */
-    public static final String GENERAL_ERROR = "No se reconoce el comando.";
+    public static final String GENERAL_ERROR = "No se reconoce el comando." +
+            "\nConsulte 'java -jar EncryptionAlgorithms.jar help' para ver los subcomandos disponibles.\n";
 
     /* Menú ayuda incial */
     public static final String INVALID_ARGUMENTS_AFP =
