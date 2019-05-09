@@ -92,22 +92,19 @@ public class EncryptionAlgorithms {
      * @return
      */
     private static String evaluateAnalisisFrecPoli(String[] args){
-        if(Constants.NUMBER_6 == args.length) {
+        if(Constants.NUMBER_5 == args.length) {
             boolean correctArguments = false;
             //Clase que procesa el análisis
             AnalysisPolyalphaFreq analysisPolyalphaFreq = new AnalysisPolyalphaFreq();
-            //Valida que exista el lenguaje ingresado
-            if (analysisPolyalphaFreq.existLanguage(args[1])) {
-                //Valida bandera "in"
-                if (Constants.IN_ARGUMENT.equals(args[2])) {
-                    //Valida bandera "frec"
-                    if (Constants.TNG_ARGUMENT.equals(args[4])) {
-                        //Valida que el parámetro frec sea entero
-                        if(Util.isInteger(args[5])){
-                            correctArguments = true;
-                            String text = Util.readFile(args[3]);
-                            return analysisPolyalphaFreq.executeAnalysis(args[1], text, args[5]);
-                        }
+            //Valida bandera "in"
+            if (Constants.IN_ARGUMENT.equals(args[1])) {
+                //Valida bandera "tng"
+                if (Constants.TNG_ARGUMENT.equals(args[3])) {
+                    //Valida que el parámetro tng sea entero
+                    if(Util.isInteger(args[4])){
+                        correctArguments = true;
+                        String text = Util.readFile(args[2]);
+                        return analysisPolyalphaFreq.executeAnalysis(text, args[4]);
                     }
                 }
             }
@@ -131,7 +128,7 @@ public class EncryptionAlgorithms {
         //MOBY_DICK:     966.800
 
 
-        String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "tng", "2"};
+        String[] arguments = {"afp", "in", "test_data/DON_QUIJOTE_Original.txt", "tng", "2"};
         //String[] arguments = {"afp", "-e", "in", "test_data/MOBY_DICK_Original.txt", "frec", "1"};
         //String[] arguments = {"afp", "-e", "in", "test_data/tildes.txt", "frec", "1"};
         //String[] arguments = {"afp", "-e", "in", "test_data/prueba.txt", "frec", "1"};

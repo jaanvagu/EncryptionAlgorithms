@@ -40,12 +40,11 @@ public class AnalysisPolyalphaFreq {
 
     /**
      * Ejecuta el análisis de acuerdo a parámetros
-     * @param language idioma
      * @param text texto
      * @param freq frecuencia
      * @return
      */
-    public String executeAnalysis(String language, String text, String freq){
+    public String executeAnalysis(String text, String freq){
 
         text = text.trim().toUpperCase();
         int frequency = Integer.parseInt(freq);
@@ -62,15 +61,20 @@ public class AnalysisPolyalphaFreq {
         return "Análisis terminado\n";
     }
 
-    private void calculateFrequency(String text, int freq){
+    /**
+     * Cálcula la frecuencia de aparición de un grama dados parámetros
+     * @param text Texto
+     * @param tng Tamanio ngrama
+     */
+    private void calculateFrequency(String text, int tng){
         Map<String, Integer> mapFrequencies = new HashMap<>();
         int iBegin = 0;
-        int iEnd = freq;
+        int iEnd = tng;
         while(iBegin < (text.length()) && iEnd <= text.length()){
 
             String expression = text.substring(iBegin, iEnd);
-            iBegin = iBegin + freq;
-            iEnd   = iEnd + freq;
+            iBegin = iBegin + tng;
+            iEnd   = iEnd + tng;
 
             int frecuency = 0;
             if(mapFrequencies.containsKey(expression)){
@@ -92,7 +96,7 @@ public class AnalysisPolyalphaFreq {
         Set<String> keys = sorted.keySet();
         int count = 1;
         System.out.println("----------");
-        System.out.println("FRECUENCIA | Tamaño n-grama: " + freq);
+        System.out.println("FRECUENCIA | Tamaño n-grama: " + tng);
         System.out.println("----------");
         for (String key : keys) {
             System.out.printf( "%-1s %10s", key + ": ", sorted.get(key) + "\t\t");
