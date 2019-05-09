@@ -12,7 +12,7 @@ public class Constants {
     /* Números */
     public static final int     NUMBER_0            = 0;
     public static final int     NUMBER_1            = 1;
-    public static final int     NUMBER_6            = 6;
+    public static final int     NUMBER_5            = 5;
 
     /* Argumentos */
     public static final String  HELP_ARGUMENT       = "help";

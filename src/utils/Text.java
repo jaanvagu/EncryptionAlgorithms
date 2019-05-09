@@ -81,13 +81,7 @@ public class Text {
         "        |-----------------------------Análsis por Frecuencia Polialfabética-----------------------------|\n" +
         "        |                                                                                               |\n" +
         "        |     Sintaxis:                                                                                 |\n" +
-        "        |     java -jar EncryptionAlgorithms.jar afp [idioma] in <ArchivoEntrada> tng <TamañoNgrama>    |\n" +
-        "        |                                                                                               |\n" +
-        "        |     Idiomas:                                                                                  |\n" +
-        "        |     -e     Español                                                                            |\n" +
-        "        |     -i     Inglés                                                                             |\n" +
-        "        |     -f     Francés                                                                            |\n" +
-        "        |     -a     Alemán                                                                             |\n" +
+        "        |     java -jar EncryptionAlgorithms.jar afp in <ArchivoEntrada> tng <TamañoNgrama>             |\n" +
         "        |                                                                                               |\n" +
         "        |     ArchivoEntrada: Nombre del archivo                                                        |\n" +
         "        |     TamañoNgrama:   Cantidad de letras agrupadas para contar su frecuencia de aparición       |\n" +
