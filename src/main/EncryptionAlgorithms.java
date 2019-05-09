@@ -71,7 +71,7 @@ public class EncryptionAlgorithms {
             endTime = System.currentTimeMillis() - startTime;
         }
         else {
-            outFileName = args[3] + ".dec";
+            outFileName = args[3] + ".des";
             startTime = System.currentTimeMillis();
             String dsc = Playfair.decode(content, key);
             Util.writeFile(outFileName, dsc);
