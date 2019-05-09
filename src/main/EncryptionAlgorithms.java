@@ -87,7 +87,7 @@ public class EncryptionAlgorithms {
                 //Valida bandera "in"
                 if (Constants.IN_ARGUMENT.equals(args[2])) {
                     //Valida bandera "frec"
-                    if (Constants.FREC_ARGUMENT.equals(args[4])) {
+                    if (Constants.TNG_ARGUMENT.equals(args[4])) {
                         //Valida que el parámetro frec sea entero
                         if(Util.isInteger(args[5])){
                             correctArguments = true;
@@ -117,7 +117,7 @@ public class EncryptionAlgorithms {
         //MOBY_DICK:     966.800
 
 
-        String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "frec", "1"};
+        String[] arguments = {"afp", "-e", "in", "test_data/DON_QUIJOTE_Original.txt", "tng", "2"};
         //String[] arguments = {"afp", "-e", "in", "test_data/MOBY_DICK_Original.txt", "frec", "1"};
         //String[] arguments = {"afp", "-e", "in", "test_data/tildes.txt", "frec", "1"};
         //String[] arguments = {"afp", "-e", "in", "test_data/prueba.txt", "frec", "1"};

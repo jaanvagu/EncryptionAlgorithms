@@ -51,9 +51,10 @@ public class AnalysisPolyalphaFreq {
         int frequency = Integer.parseInt(freq);
         long startTime = System.currentTimeMillis();
 
-        //while(frequency > 0) {
-            this.calculateFrequency(text, frequency--);
-        //}
+        int iterator = 1;
+        while(iterator <= frequency) {
+            this.calculateFrequency(text, iterator++);
+        }
 
         System.out.println("Cantidad de letras: " + text.length());
         long endTime = System.currentTimeMillis() - startTime;

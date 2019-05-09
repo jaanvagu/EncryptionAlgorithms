@@ -17,7 +17,7 @@ public class Constants {
     /* Argumentos */
     public static final String  HELP_ARGUMENT       = "help";
     public static final String  IN_ARGUMENT         = "in";
-    public static final String  FREC_ARGUMENT       = "frec";
+    public static final String  TNG_ARGUMENT        = "tng";
     public static final String  PLAYFAIR            = "pf";
     public static final String  ANALISIS_FRECUENCIA = "afp";
     public static final String  SPANISH_LANGUAGE    = "-e";
