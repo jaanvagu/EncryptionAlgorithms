@@ -1,7 +1,7 @@
 # EncryptionAlgorithms
 Implementación de: Algoritmo Playfair y Análisis por frecuencia polialfabética.
 
-## Prerrequeisitos
+## Prerrequisitos
 * Sistema Unix.
 * [JRE](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) - Máquina virtual de JAVA.
 * Consola de comandos Unix.
@@ -18,7 +18,6 @@ Se requiere el ejecutable *EncryptionAlgorithms.jar*. Puede obtenerse de dos man
 java -jar EncryptionAlgorithms.jar
 ```
 ### Ver menú de ayuda
-Para ver el menú de ayuda ejecute el siguiente comando
 ```
 java -jar EncryptionAlgorithms.jar help
 ```
@@ -31,7 +30,7 @@ java -jar EncryptionAlgorithms.jar pf
 java -jar EncryptionAlgorithms.jar afp
 ```
 ## Video tutorial
-Podrá ver en el siguiente [enlace](https://www.youtube.com) un vídeo de cómo ejecutar el programa paso a paso.
+Podrá ver en el siguiente [enlace](https://youtu.be/VcOiL8MLZIc) un vídeo de cómo ejecutar el programa paso a paso.
 
 ## Autores
 
