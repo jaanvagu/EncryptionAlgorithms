@@ -142,14 +142,10 @@ public class EncryptionAlgorithms {
 
         //args = arguments;
 
-        /*try {
+        try {
             Util.printMenu(EncryptionAlgorithms.evaluateInitialArguments(args));
         }catch (Exception e){
             Util.printMenu(Text.GENERAL_ERROR);
-        }*/
-        System.out.println("C");
-        String texto = "prueba.txt";
-        System.out.println(texto.indexOf("."));
-        System.out.println(texto.substring(0,6));
+        }
     }
 }
