@@ -20,10 +20,6 @@ public class Constants {
     public static final String  TNG_ARGUMENT        = "tng";
     public static final String  PLAYFAIR            = "pf";
     public static final String  ANALISIS_FRECUENCIA = "afp";
-    public static final String  SPANISH_LANGUAGE    = "-e";
-    public static final String  ENGLISH_LANGUAGE    = "-i";
-    public static final String  FRENCH_LANGUAGE     = "-f";
-    public static final String  GERMAN_LANGUAGE     = "-g";
 
     /* Indentificador para reemplazar comando inválido */
     public static final String  INVALID_COMMAND_STR = "%comando%";

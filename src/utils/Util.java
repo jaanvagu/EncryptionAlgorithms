@@ -82,6 +82,11 @@ public class Util {
         }
     }
 
+    /**
+     * Evalua si una cadena corrresponde a un número entero
+     * @param expression cadena de caracteres
+     * @return true o false
+     */
     public static boolean isInteger(String expression){
         try{
             Integer.parseInt(expression);

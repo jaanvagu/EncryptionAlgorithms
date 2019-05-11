@@ -1,44 +1,17 @@
-/*
-  Clase que contiene los metodos necesarios para el funcionamiento del algoritmo Playfair
-  @autor Edson Ruiz Ramirez
-  @date 07-may-2019
-  @version 1.0
+/**
+ * Clase que contiene los metodos necesarios para el funcionamiento del algoritmo Playfair
+ * @autor Edson Ruiz Ramirez
+ * @date 07-may-2019
+ * @version 1.0
  */
 
 package crypto;
 
 import java.awt.*;
-import java.util.Scanner;
 
 public class Playfair {
     private static char[][] charTable;
     private static Point[] positions;
-
-    /*public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String key = prompt("Enter an encryption key (min length 5): ", sc, 5);
-        String txt = prompt("Enter the message: ", sc, 1);
-        //String key = "cuatro";
-        //String txt = "solosequenadase";
-        createTable(key);
-
-        String enc = encode(prepareText(txt));
-        System.out.println("Encode: \n" + enc);
-
-        String dec = decode(enc);
-        System.out.println("Decode: \n" + dec);
-        //System.out.printf("%nEncoded message: %n%s%n", enc);
-        //System.out.printf("%nDecoded message: %n%s%n", decode(enc));
-    }*/
-
-    private static String prompt(String promptText, Scanner sc, int minLen) {
-        String s;
-        do {
-            System.out.print(promptText);
-            s = sc.nextLine().trim();
-        } while (s.length() < minLen);
-        return s;
-    }
 
     /**
      * Prepara el texto que se usara en el proceso

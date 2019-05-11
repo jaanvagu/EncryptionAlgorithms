@@ -18,24 +18,7 @@ public class AnalysisPolyalphaFreq {
     private HashSet<String> languagesHash;
 
     public AnalysisPolyalphaFreq(){
-        this.fillLanguages();
-    }
 
-    private void fillLanguages(){
-        languagesHash = new HashSet<>();
-        languagesHash.add(Constants.SPANISH_LANGUAGE);
-        languagesHash.add(Constants.ENGLISH_LANGUAGE);
-        languagesHash.add(Constants.FRENCH_LANGUAGE);
-        languagesHash.add(Constants.GERMAN_LANGUAGE);
-    }
-
-    /**
-     * Busca idioma en hash
-     * @param language idioma
-     * @return true o false
-     */
-    public boolean existLanguage(String language){
-        return languagesHash.contains(language);
     }
 
     /**
@@ -71,11 +54,11 @@ public class AnalysisPolyalphaFreq {
         int iBegin = 0;
         int iEnd = tng;
         while(iBegin < (text.length()) && iEnd <= text.length()){
-
+            //Se obtiene expresión de tamaño n
             String expression = text.substring(iBegin, iEnd);
             iBegin = iBegin + tng;
             iEnd   = iEnd + tng;
-
+            //Se cuenta la frecuencia de aparición de cada expresión
             int frecuency = 0;
             if(mapFrequencies.containsKey(expression)){
                 frecuency = mapFrequencies.get(expression);
@@ -85,6 +68,7 @@ public class AnalysisPolyalphaFreq {
             }
         }
 
+        //Se crea map para ordenar el map de frecuencias de forma descendente
         Map<String, Integer> sorted = mapFrequencies
                 .entrySet()
                 .stream()

@@ -50,7 +50,7 @@ public class EncryptionAlgorithms {
     }
 
     /**
-     *
+     * Usa los parámetros de playfair e invoca cifrar o descifrar según corresponda
      * @param args
      * @return
      */
@@ -58,20 +58,27 @@ public class EncryptionAlgorithms {
         String content = Util.readFile(args[3]);
         String key = Util.readFile(args[5]);
 
-        String outFileName ;
+        String outFileName;
         long startTime;
         long endTime;
         System.out.println("Iniciando playfair...\n");
 
+        try{
+            int indexPoint = args[3].indexOf(".");
+            outFileName = args[3].substring(Constants.NUMBER_0, indexPoint);
+        }catch (Exception e){
+            outFileName = args[3];
+        }
+
         if ("-c".equals(args[1])) {
-            outFileName = args[3] + ".cif";
+            outFileName += ".cif";
             startTime = System.currentTimeMillis();
             String crypto = Playfair.encode(content, key);
             Util.writeFile(outFileName, crypto);
             endTime = System.currentTimeMillis() - startTime;
         }
         else {
-            outFileName = args[3] + ".des";
+            outFileName += ".des";
             startTime = System.currentTimeMillis();
             String dsc = Playfair.decode(content, key);
             Util.writeFile(outFileName, dsc);
@@ -119,7 +126,7 @@ public class EncryptionAlgorithms {
     }
 
     /**
-     * Método principal que recibe los parámetros para ejecutar el programa de cifrado
+     * Método principal que recibe los parámetros para ejecutar el programa
      * @param args Argumentos y banderas
      */
     public static void main(String[] args) {
@@ -135,10 +142,14 @@ public class EncryptionAlgorithms {
 
         //args = arguments;
 
-        try {
+        /*try {
             Util.printMenu(EncryptionAlgorithms.evaluateInitialArguments(args));
         }catch (Exception e){
             Util.printMenu(Text.GENERAL_ERROR);
-        }
+        }*/
+        System.out.println("C");
+        String texto = "prueba.txt";
+        System.out.println(texto.indexOf("."));
+        System.out.println(texto.substring(0,6));
     }
 }
