@@ -86,6 +86,7 @@ public class Playfair {
      * @return Texto codificado
      */
     private static String codec(StringBuilder text, int direction) {
+        System.out.println("Iniciando playfair...\n");
         int len = text.length();
         for (int i = 0; i < len; i += 2) {
             char a = text.charAt(i);
