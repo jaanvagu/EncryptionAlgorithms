@@ -81,9 +81,9 @@ public class Text {
         "        |-----------------------------Análsis por Frecuencia Polialfabética-----------------------------|\n" +
         "        |                                                                                               |\n" +
         "        |     Sintaxis:                                                                                 |\n" +
-        "        |     java -jar EncryptionAlgorithms.jar afp in <ArchivoEntrada> tng <TamañoNgrama>             |\n" +
+        "        |     java -jar EncryptionAlgorithms.jar afp in <CarpetaEntrada> tng <TamañoNgrama>             |\n" +
         "        |                                                                                               |\n" +
-        "        |     Carpeta de entrada: Nombre de la carpeta contenedora de archivos                          |\n" +
+        "        |     CarpetaEntrada: Nombre de la carpeta contenedora de archivos                              |\n" +
         "        |     TamañoNgrama:   Cantidad de letras agrupadas para contar su frecuencia de aparición       |\n" +
         "        |                                                                                               |\n" +
         "        |     Nota: Los archivos deben estar codificados en UTF-8 sin BOM                               |\n" +
