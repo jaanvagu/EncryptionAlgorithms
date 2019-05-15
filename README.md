@@ -33,8 +33,6 @@ java -jar EncryptionAlgorithms.jar pf
 ```
 java -jar EncryptionAlgorithms.jar afp
 ```
-## Video tutorial
-Podrá ver en el siguiente [enlace](https://youtu.be/VcOiL8MLZIc) un vídeo de cómo ejecutar el programa paso a paso.
 
 ## Autores
 
