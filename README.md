@@ -9,7 +9,7 @@ Implementación de: Algoritmo Playfair y Análisis por frecuencia polialfabétic
 ## Preparación
 Se requiere el ejecutable *EncryptionAlgorithms.jar*. Puede obtenerse de dos maneras:
 * Generar ejecutable *.jar* a partir del código fuente.
-* Descargar la última versión del archivo [aquí](https://www.dropbox.com/s/jvwozqdvmknqx5e/EncryptionAlgorithms.jar?dl=0).
+* Descargar la última versión del archivo [aquí](https://drive.google.com/open?id=1bnDfTauQhbHTBVTDna7XiGr0f0mhcqAY).
 * En la ubicación del ejecutable deberá crear las carpetas contenedoras de archivos. Por ejemplo: Spanish/ English/ French/. Dichas carpetas contendrán los archivos de sus respectivos idiomas.
 * El ejecutable está preparado para leer archivos dentro de subcarpetas. Ejemplo: Spanish/SinTiles Spanish/ConTildes.
 * A cada archivo leído, sin importar el idioma, se le quitarán los espacios en blanco y todas sus letras se pasarán a mayúsculas.
