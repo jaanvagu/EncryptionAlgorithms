@@ -8,8 +8,13 @@
 package utils;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Util {
+
+    public static int totalFiles = 0;
 
     /**
      * Imprime en consola un texto
@@ -62,6 +67,36 @@ public class Util {
     }
 
     /**
+     * Lee un archivo
+     * @param file Ruta del archivo
+     * @return Contenido del archivo
+     */
+    public static String readFile(File file){
+        try {
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            StringBuilder content = new StringBuilder();
+            String line = "";
+            while((line = bufferedReader.readLine()) != null){
+                content.append(line);
+            };
+
+            bufferedReader.close();
+            fileReader.close();
+
+            return content.toString();
+
+        }catch (FileNotFoundException e){
+            System.out.println("Archivo no encontrado");
+            return null;
+        }catch (Exception e){
+            System.out.println("Error desconocido: " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
      * Crea y escribe en un archivo nuevo
      * @param fileName Nombre del archivo
      * @param content Contenido
@@ -79,6 +114,27 @@ public class Util {
             }
         }catch (Exception e){
             System.out.println("Error creando archivo. " + e.getMessage());
+        }
+    }
+
+    public static String readFilesFromFolder(String folderName){
+        StringBuilder contentsFilesInFolder = new StringBuilder("");
+        AtomicInteger countFiles = new AtomicInteger();
+        try {
+            Files.walk(Paths.get(folderName)).forEach(ruta -> {
+
+                if (Files.isRegularFile(ruta)) {
+                    File fileItem = ruta.toFile();
+                    contentsFilesInFolder.append(Util.readFile(fileItem).trim().toUpperCase());
+                    countFiles.getAndIncrement();
+                }
+            });
+            Util.totalFiles = countFiles.get();
+
+            return contentsFilesInFolder.toString();
+        }catch (Exception e){
+            System.out.println(Text.FOLDER_ERROR);
+            return "";
         }
     }
 

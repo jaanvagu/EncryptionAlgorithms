@@ -109,7 +109,7 @@ public class EncryptionAlgorithms {
                     //Valida que el parámetro tng sea entero
                     if(Util.isInteger(args[4])){
                         correctArguments = true;
-                        String text = Util.readFile(args[2]);
+                        String text = Util.readFilesFromFolder(args[2]);
                         return analysisPolyalphaFreq.executeAnalysis(text, args[4]);
                     }
                 }

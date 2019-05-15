@@ -8,6 +8,7 @@
 package analysis;
 
 import utils.Constants;
+import utils.Util;
 
 import java.util.*;
 
@@ -15,7 +16,7 @@ import static java.util.stream.Collectors.toMap;
 
 public class AnalysisPolyalphaFreq {
 
-    private HashSet<String> languagesHash;
+    public static int countFrequencies = 0;
 
     public AnalysisPolyalphaFreq(){
 
@@ -38,7 +39,9 @@ public class AnalysisPolyalphaFreq {
             this.calculateFrequency(text, iterator++);
         }
 
-        System.out.println("Cantidad de caracteres: " + text.length());
+        System.out.println("Cantidad de archivos: " + Util.totalFiles);
+        System.out.println("Sumatoria de frecuencias: " + AnalysisPolyalphaFreq.countFrequencies);
+        System.out.println("Cantidad de caracteres:   " + text.length());
         long endTime = System.currentTimeMillis() - startTime;
         System.out.println("Tiempo de ejecución: " + endTime + " milisegundos");
         return "Análisis terminado\n";
@@ -83,7 +86,9 @@ public class AnalysisPolyalphaFreq {
         System.out.println("FRECUENCIA | Tamaño n-grama: " + tng);
         System.out.println("----------");
         for (String key : keys) {
-            System.out.printf( "%-1s %10s", key + ": ", sorted.get(key) + "\t\t");
+            int frecuency = sorted.get(key);
+            System.out.printf( "%-1s %10s", key + ": ", frecuency + "\t\t");
+            AnalysisPolyalphaFreq.countFrequencies = AnalysisPolyalphaFreq.countFrequencies + frecuency;
             if(count%5 == 0)
                 System.out.print("\n");
             count++;

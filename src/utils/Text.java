@@ -83,7 +83,7 @@ public class Text {
         "        |     Sintaxis:                                                                                 |\n" +
         "        |     java -jar EncryptionAlgorithms.jar afp in <ArchivoEntrada> tng <TamañoNgrama>             |\n" +
         "        |                                                                                               |\n" +
-        "        |     ArchivoEntrada: Nombre del archivo                                                        |\n" +
+        "        |     Carpeta de entrada: Nombre de la carpeta contenedora de archivos                          |\n" +
         "        |     TamañoNgrama:   Cantidad de letras agrupadas para contar su frecuencia de aparición       |\n" +
         "        |                                                                                               |\n" +
         "        |     Nota: Los archivos deben estar codificados en UTF-8 sin BOM                               |\n" +
@@ -95,6 +95,10 @@ public class Text {
 
     /* Error general */
     public static final String GENERAL_ERROR = "No se reconoce el comando." +
+            "\nConsulte 'java -jar EncryptionAlgorithms.jar help' para ver los subcomandos disponibles.\n";
+
+    /* Error general */
+    public static final String FOLDER_ERROR = "Ocurrió un problema leyendo la carpeta contenedora de archivos." +
             "\nConsulte 'java -jar EncryptionAlgorithms.jar help' para ver los subcomandos disponibles.\n";
 
     /* Menú ayuda incial */
